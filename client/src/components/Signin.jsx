@@ -21,7 +21,7 @@ const Signin = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const response = await axios.post("http://localhost:4000/", { email, otp });
+        const response = await axios.post("http://localhost:4000/", {  email, otp });
         console.log('Data sent successfully:', response.data);
         if (response.data.success) {
           Swal.fire(response.data.message);

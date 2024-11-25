@@ -1,12 +1,15 @@
 const express=require("express")
 const mongoose= require("mongoose")
 const cors= require("cors")
-const port =process.env.PORT||4000
+// const PORT =process.env.PORT||4000
 const dotenv=require("dotenv")
 const http= require('http')
-const userRoutes = require('./Routes');
+const app=express();
+const userRoutes = require('./Routes/userRoutes');
+const dbConnection=require('./config/dbconfig')
+dbConnection()
 
-mongoose.connect(process.env.DATABASE_URL, {
+mongoose.connect(process.env.DB_URL, {
     
   })
   .then(() => console.log('Connected to MongoDB'))
@@ -17,5 +20,8 @@ mongoose.connect(process.env.DATABASE_URL, {
     method: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true,
   }));
+  app.listen(process.env.PORT,()=>{
+    console.log(`Server started at port ${process.env.PORT}`)
+})
   
   app.use('/', userRoutes);
