@@ -47,4 +47,9 @@ module.exports.signUp=async(req,res)=>{
     
    
 }
-     
+   
+module.exports.createNotes=async(req,res)=>{
+   const {noteText}=req.body
+   console.log(noteText)
+}
+  

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./Home.css"
-import { useNavigate } from 'react-router-dom';
+import { data, useNavigate } from 'react-router-dom';
 const Home = () => {
     const [notes, setNotes] = useState([]);
   const [noteText, setNoteText] = useState('');
@@ -25,7 +25,7 @@ const Home = () => {
   const handleAddNote = async () => {
     if (noteText.trim()) {
       try {
-        const response = await axios.post('http://localhost:4000/notes', { text: noteText });
+        const response = await axios.post('http://localhost:4000/createnotes', { noteText});
         setNotes([...notes, response.data]);
         setNoteText('');
       } catch (err) {
