@@ -9,8 +9,8 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route>
-      <Route exact path="/" element={<Signup/>}/>
-      <Route exact path="/signin" element={<Signin/>}/>
+      {/* <Route exact path="/" element={<Signup/>}/>
+      <Route exact path="/signin" element={<Signin/>}/> */}
       <Route exact path="/home" element ={<Home/>}/>
       
         </Route>
